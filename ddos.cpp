@@ -12,7 +12,7 @@ public :
     static int getUniqueId();
 };
 
-int Utility::getUniqueId() {
+int BOTSIDS::getUniqueId() {
     static std::atomic<std::uint32_t> uid { 0 };
     return ++uid;
 }
