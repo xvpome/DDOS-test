@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #include <windows.h>
 #include <unistd.h>
+#include <string>
 // Replace It with the server link or IP where PHP server is running
 // The PHP files to put on server is in server directory.
 #define SERVER_URL "https://zoocenter.bg"
